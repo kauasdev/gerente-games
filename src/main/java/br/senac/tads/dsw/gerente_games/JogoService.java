@@ -38,4 +38,10 @@ public class JogoService {
 	public Optional<Jogo> obterJogo(String titulo) {
 		return Optional.ofNullable(mapJogos.get(titulo));
 	}
+
+	public Jogo incluirNovoJogo(Jogo jogo){
+		jogo.setId(contador.incrementAndGet());
+		mapJogos.put(jogo.getTitulo(), jogo);
+		return jogo;
+	}
 }

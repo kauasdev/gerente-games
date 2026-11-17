@@ -1,12 +1,28 @@
 package br.senac.tads.dsw.gerente_games;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Jogo {
 
 	private Integer id;
+
+	@NotBlank(message = "O título é obrigatório")
+	@Size(max = 64)
 	private String titulo;
+
+	@NotNull(message = "O ano de lançamento é obrigatório")
 	private int anoDeLancamento;
+
+	@NotBlank(message = "O plataforma é obrigatória")
+	@Size(max = 64)
 	private String plataforma;
+
+	@NotNull
 	private boolean disponivel;
+
+	@Size(max = 100)
 	private String observacoes;
 
 	public Jogo(){
